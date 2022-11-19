@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Caixa implements Produto {
 	private final List<Produto> produtos;
-	
+
 	public Caixa(List<Produto> produtos) {
 		this.produtos = produtos;
 	}
