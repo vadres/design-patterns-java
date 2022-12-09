@@ -1,18 +1,23 @@
 package estruturais.composite;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class Application {
-	private static final Logger logger = Logger.getLogger(Application.class.getName());
 
 	public static void main(String[] args) {
-		List<Produto> produtos = new LinkedList<>();
-		produtos.add(new Arroz());
-		produtos.add(new Farinha());
+		List<Produto> listaArroz = new LinkedList<>();
+		listaArroz.add(new Arroz());
+		listaArroz.add(new Arroz());
+		Caixa caixaArroz = new Caixa(listaArroz);
 
-		Caixa caixa = new Caixa(produtos);
-		logger.info(() -> caixa.preco().toString());
+		List<Produto> listaFarinha = new LinkedList<>();
+		listaArroz.add(new Farinha());
+		listaArroz.add(new Farinha());
+		Caixa caixaFarinha = new Caixa(listaFarinha);
+
+		Caixa caixa = new Caixa(Arrays.asList(caixaFarinha, caixaArroz));
+		System.out.println(caixa.preco());
 	}
 }
